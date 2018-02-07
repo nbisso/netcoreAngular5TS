@@ -1,0 +1,12 @@
+{
+  "requires": true,
+  "lockfileVersion": 1,
+  "dependencies": {
+    "@ng-bootstrap/ng-bootstrap": {
+      "integrity": "sha1-jyrnDbL+Hcv14Ky0ncKxu7or6NI=",
+      "resolved": "https://registry.npmjs.org/@ng-bootstrap/ng-bootstrap/-/ng-bootstrap-1.0.0.tgz",
+      "version": "1.0.0"
+    },
+    "bootstrap": "^4.0.0"
+  }
+}

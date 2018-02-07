@@ -1,0 +1,7 @@
+npm i -g npm-check-updates
+ncu -u
+npm install
+//si no existe el webpack
+npm i -g webpack
+//generar el archivo
+webpack --config webpack.config.vendor.js

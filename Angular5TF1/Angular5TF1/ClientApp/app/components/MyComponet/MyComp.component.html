@@ -1,0 +1,6 @@
+
+<h1 (click)="showAlert()">{{name}}</h1>
+<input (change)="sendMessageToParent()" [(ngModel)]="name" class="input-lg"/>
+<button (click)="vote()" [disabled]="voted">Send Up</button>
+<button class="btn btn-lg btn-outline-primary" (click)="open()">Launch demo modal</button>
+
