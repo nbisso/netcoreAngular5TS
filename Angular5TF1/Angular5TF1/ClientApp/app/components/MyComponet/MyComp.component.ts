@@ -18,11 +18,14 @@ export class MyComp implements OnInit {
 
     open() {
         const modalRef = this.modalService.open(NgbdModalContent);
-    
+
         modalRef.componentInstance.name = 'World';
 
         modalRef.result.then((result) => {
             alert(`Closed with: ${result}`);
+        }, (reason) => {
+            alert(`Dismissed ${this.getDismissReason(reason)}`);
+
         });
     }
 
@@ -57,6 +60,16 @@ export class MyComp implements OnInit {
     //        this.forecasts = result.json() as WeatherForecast[];
     //    }, error => console.error(error));
     //}
+
+    private getDismissReason(reason: any): string {
+        if (reason === ModalDismissReasons.ESC) {
+            return 'by pressing ESC';
+        } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+            return 'by clicking on a backdrop';
+        } else {
+            return `with: ${reason}`;
+        }
+    }
 }
 
 class WeatherForecast {
@@ -67,7 +80,7 @@ class WeatherForecast {
 }
 
 
-import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModal, NgbActiveModal, ModalDismissReasons} from '@ng-bootstrap/ng-bootstrap';
 
 
 @Component({
@@ -88,7 +101,7 @@ import { NgbModal, NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
   `
 })
 export class NgbdModalContent {
-    @Input() name : string = "";
+    @Input() name: string = "";
 
     constructor(public activeModal: NgbActiveModal) { }
 }
