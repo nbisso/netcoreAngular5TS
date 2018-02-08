@@ -47,10 +47,15 @@ namespace Angular5TF1.Controllers.Security
                 signingCredentials: new SigningCredentials(new SymmetricSecurityKey(Encoding.UTF8.GetBytes("secret that needs to be at least 16 characters long")),
                         SecurityAlgorithms.HmacSha256)
             );
+            var stringToken = new JwtSecurityTokenHandler().WriteToken(token);
 
-            return new { token = new JwtSecurityTokenHandler().WriteToken(token) };
+            HttpContext.Response.Cookies.Append("token", stringToken,
+                options: new Microsoft.AspNetCore.Http.CookieOptions()
+                {
+                    Expires = DateTime.Now.AddDays(69)
+                });
 
-
+            return new { token = stringToken };
         }
     }
 }
