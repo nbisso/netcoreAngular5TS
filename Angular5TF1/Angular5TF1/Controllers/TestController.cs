@@ -42,44 +42,7 @@ namespace Angular5TF1.Controllers
 
 
 
-        [AllowAnonymous]
-        [HttpPost]
-        [Route("token")]
-        public object Post()
-        {
 
-            //This method returns user id from username and password.
-            //var userId = GetUserIdFromCredentials(loginViewModel);
-            //if (userId == -1)
-            //{
-            //    return Unauthorized();
-            //}
-
-            var claims = new[]
-            {
-            new Claim(JwtRegisteredClaimNames.Sub, "Test"),
-            new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
-            new Claim("IdUsuario",Guid.NewGuid().ToString()),
-            new Claim("role","Admin")
-            
-        };
-
-            var token = new JwtSecurityToken
-            (
-
-                issuer: "TEST",
-                audience: "ADMIN",
-                claims: claims,
-                expires: DateTime.UtcNow.AddDays(60),
-                notBefore: DateTime.UtcNow,
-                signingCredentials: new SigningCredentials(new SymmetricSecurityKey(Encoding.UTF8.GetBytes("secret that needs to be at least 16 characters long")),
-                        SecurityAlgorithms.HmacSha256)
-            );
-
-            return new { token = new JwtSecurityTokenHandler().WriteToken(token) };
-
-
-        }
 
     }
 

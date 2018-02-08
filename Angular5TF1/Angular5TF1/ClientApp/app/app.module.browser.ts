@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppModuleShared } from './app.module.shared';
 import { AppComponent } from './components/app/app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { NgbdModalContent } from '../app/components/MyComponet/MyComp.component';
+import { NgbdModalContent } from '../app/Services/Common/ModalService';
 
 @NgModule({
     bootstrap: [ AppComponent ],

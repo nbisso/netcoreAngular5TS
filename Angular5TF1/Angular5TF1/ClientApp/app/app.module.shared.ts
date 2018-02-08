@@ -14,7 +14,7 @@ import { MyComp } from './components/MyComponet/MyComp.component';
 import { MissionService } from './Services/ComunicationServices';
 import { DataServices } from './components/counter/DataServices'
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { NgbdModalContent } from '../app/components/MyComponet/MyComp.component';
+import { NgbdModalContent } from '../app/Services/Common/ModalService';
 
 
 @NgModule({
