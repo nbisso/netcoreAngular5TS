@@ -52,7 +52,7 @@ namespace Angular5TF1.Controllers.Security
             HttpContext.Response.Cookies.Append("token", stringToken,
                 options: new Microsoft.AspNetCore.Http.CookieOptions()
                 {
-                    Expires = DateTime.Now.AddDays(69)
+                    Expires = DateTime.Now.AddDays(60)
                 });
 
             return new { token = stringToken };
