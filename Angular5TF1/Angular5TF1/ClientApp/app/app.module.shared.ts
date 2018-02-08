@@ -15,7 +15,7 @@ import { MissionService } from './Services/ComunicationServices';
 import { DataServices } from './components/counter/DataServices'
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgbdModalContent } from '../app/Services/Common/ModalService';
-
+import { LoginActivate } from './Security/LoginActivate';
 
 @NgModule({
     declarations: [
@@ -37,12 +37,13 @@ import { NgbdModalContent } from '../app/Services/Common/ModalService';
             { path: 'counter', component: CounterComponent },
             { path: 'fetch-data', component: FetchDataComponent },
             { path: 'mycomp', component: MyComp },
+            { path: 'Admin', component: MyComp, canActivate: [LoginActivate] },
             { path: '**', redirectTo: 'home' },
 
         ]),
         NgbModule.forRoot()
     ],
-    providers: [MissionService, DataServices],
+    providers: [MissionService, DataServices, LoginActivate],
     entryComponents: [NgbdModalContent]
 })
 export class AppModuleShared {

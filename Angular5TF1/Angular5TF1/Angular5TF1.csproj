@@ -23,12 +23,14 @@
 
   <ItemGroup>
     <None Remove="ClientApp\app\components\counter\DataServices.ts" />
+    <None Remove="ClientApp\app\Security\LoginActivate.ts" />
     <None Remove="ClientApp\app\Services\Common\ModalService.ts" />
     <None Remove="ClientApp\app\Services\ComunicationServices.ts" />
   </ItemGroup>
 
   <ItemGroup>
     <TypeScriptCompile Include="ClientApp\app\components\counter\DataServices.ts" />
+    <TypeScriptCompile Include="ClientApp\app\Security\LoginActivate.ts" />
     <TypeScriptCompile Include="ClientApp\app\Services\Common\ModalService.ts" />
     <TypeScriptCompile Include="ClientApp\app\Services\ComunicationServices.ts" />
   </ItemGroup>
