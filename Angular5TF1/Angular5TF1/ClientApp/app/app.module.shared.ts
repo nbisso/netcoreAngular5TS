@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 
@@ -16,6 +16,7 @@ import { DataServices } from './components/counter/DataServices'
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgbdModalContent } from '../app/Services/Common/ModalService';
 import { LoginActivate } from './Security/LoginActivate';
+import { Login } from './components/LogIn/Login'
 
 @NgModule({
     declarations: [
@@ -25,18 +26,21 @@ import { LoginActivate } from './Security/LoginActivate';
         FetchDataComponent,
         HomeComponent,
         MyComp,
-        NgbdModalContent
+        NgbdModalContent,
+        Login
     ],
     imports: [
         CommonModule,
         HttpModule,
         FormsModule,
+        ReactiveFormsModule,
         RouterModule.forRoot([
             { path: '', redirectTo: 'home', pathMatch: 'full' },
             { path: 'home', component: HomeComponent },
             { path: 'counter', component: CounterComponent },
             { path: 'fetch-data', component: FetchDataComponent },
             { path: 'mycomp', component: MyComp },
+            { path: 'login', component : Login },
             { path: 'Admin', component: MyComp, canActivate: [LoginActivate] },
             { path: '**', redirectTo: 'home' },
 
