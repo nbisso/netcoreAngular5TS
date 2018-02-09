@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
-
+import { HttpClientModule } from "@angular/common/http";
 
 import { AppComponent } from './components/app/app.component';
 import { NavMenuComponent } from './components/navmenu/navmenu.component';
@@ -17,6 +17,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgbdModalContent } from '../app/Services/Common/ModalService';
 import { LoginActivate } from './Security/LoginActivate';
 import { Login } from './components/LogIn/Login'
+import { LoginService } from './Services/LoginService'
 
 @NgModule({
     declarations: [
@@ -31,6 +32,7 @@ import { Login } from './components/LogIn/Login'
     ],
     imports: [
         CommonModule,
+        HttpClientModule,
         HttpModule,
         FormsModule,
         ReactiveFormsModule,
@@ -47,7 +49,7 @@ import { Login } from './components/LogIn/Login'
         ]),
         NgbModule.forRoot()
     ],
-    providers: [MissionService, DataServices, LoginActivate],
+    providers: [MissionService, DataServices, LoginActivate, LoginService ],
     entryComponents: [NgbdModalContent]
 })
 export class AppModuleShared {

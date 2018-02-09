@@ -26,6 +26,7 @@
     <None Remove="ClientApp\app\Security\LoginActivate.ts" />
     <None Remove="ClientApp\app\Services\Common\ModalService.ts" />
     <None Remove="ClientApp\app\Services\ComunicationServices.ts" />
+    <None Remove="ClientApp\app\Services\LoginService.ts" />
   </ItemGroup>
 
   <ItemGroup>
@@ -33,6 +34,7 @@
     <TypeScriptCompile Include="ClientApp\app\Security\LoginActivate.ts" />
     <TypeScriptCompile Include="ClientApp\app\Services\Common\ModalService.ts" />
     <TypeScriptCompile Include="ClientApp\app\Services\ComunicationServices.ts" />
+    <TypeScriptCompile Include="ClientApp\app\Services\LoginService.ts" />
   </ItemGroup>
 
   <Target Name="DebugRunWebpack" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('wwwroot\dist') ">

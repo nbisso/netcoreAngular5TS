@@ -11,6 +11,13 @@ using Microsoft.IdentityModel.Tokens;
 
 namespace Angular5TF1.Controllers.Security
 {
+    public class LoginRequest
+    {
+        public string Email { get; set; }
+
+        public string Password { get; set; }
+    }
+
     [Produces("application/json")]
     [Route("api/Login")]
     public class LoginController : Controller
@@ -18,7 +25,7 @@ namespace Angular5TF1.Controllers.Security
         [AllowAnonymous]
         [HttpPost]
         [Route("token")]
-        public object Post()
+        public object Post([FromBody]LoginRequest login)
         {
 
             //This method returns user id from username and password.
