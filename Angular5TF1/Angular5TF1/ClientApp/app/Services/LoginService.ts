@@ -10,6 +10,8 @@ const httpOptions = {
     })
 };
 
+//const _document = document;
+
 @Injectable()
 export class LoginService {
     private url: string;
@@ -19,7 +21,7 @@ export class LoginService {
 
     constructor(private httpClient: HttpClient,
         @Inject('BASE_URL') baseUrl: string,
-        @Inject(DOCUMENT) private document: any) {
+        @Inject(DOCUMENT) private _document: any) {
         this.url = baseUrl;
     }
 
@@ -28,27 +30,30 @@ export class LoginService {
             data, httpOptions);
     }
 
-    IsUserLogged(document: any) {
-        this.document = document;
-
-        return this.getCookie("token") != "";
+    IsUserLogged() {
+        //var cookies = "";
+        var doc = this._document as Document;
+        
+        return true;
+        //var cookies = doc.cookie;
+        //return cookies.lastIndexOf("token") > -1;
     }
 
-    private getCookie(cname: string) {
-        var name = cname + "=";
-        var decodedCookie = decodeURIComponent(this.document.cookie);
-        var ca = decodedCookie.split(';');
-        for (var i = 0; i < ca.length; i++) {
-            var c = ca[i];
-            while (c.charAt(0) == ' ') {
-                c = c.substring(1);
-            }
-            if (c.indexOf(name) == 0) {
-                return c.substring(name.length, c.length);
-            }
-        }
-        return "";
-    }
+    //private getCookie(cname: string) {
+    //    var name = cname + "=";
+    //    var decodedCookie = decodeURIComponent(this.document.cookie);
+    //    var ca = decodedCookie.split(';');
+    //    for (var i = 0; i < ca.length; i++) {
+    //        var c = ca[i];
+    //        while (c.charAt(0) == ' ') {
+    //            c = c.substring(1);
+    //        }
+    //        if (c.indexOf(name) == 0) {
+    //            return c.substring(name.length, c.length);
+    //        }
+    //    }
+    //    return "";
+    //}
 
 }
 

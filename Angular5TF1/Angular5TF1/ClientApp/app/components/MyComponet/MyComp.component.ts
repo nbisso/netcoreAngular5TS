@@ -9,7 +9,9 @@ import { MissionService } from '../../Services/ComunicationServices';
     selector: 'MyCompo',
     templateUrl: './MyComp.component.html'
 })
-export class MyComp implements OnInit {
+
+
+export class MyComp {
 
     constructor(private missionService: MissionService, private modalService: NgbModal) {
         missionService.missionConfirmed$.subscribe(
@@ -45,11 +47,6 @@ export class MyComp implements OnInit {
 
     public name: string = "Test";
 
-
-
-    ngOnInit(): void {
-        this.name = this.texto;
-    }
     public forecasts: WeatherForecast[] = [];
 
 

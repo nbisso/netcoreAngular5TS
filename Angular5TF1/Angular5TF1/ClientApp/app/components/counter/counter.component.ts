@@ -10,16 +10,18 @@ import { DataServices } from './DataServices'
 })
 export class CounterComponent implements OnInit {
 
-    ngOnInit(): void {
+    getdata(): void {
         this.dataServices.GetData().subscribe(data => {
-            
-            var data2 = data.json();
+            var data2 = data;
+            console.log(data);
         }, error => console.error(error));
-
+    }
+    ngOnInit(): void {
+        this.getdata();
     }
 
     public currentCount = 0;
-    public MyString: string = "Hola Soy Re Pro";
+    public MyString: string = "Hola Soy Ro";
     public incrementCounter() {
         this.currentCount++;
         this.MyString = "0";
