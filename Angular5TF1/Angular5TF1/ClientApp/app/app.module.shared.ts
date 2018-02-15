@@ -19,33 +19,16 @@ import { LoginActivate } from './Security/LoginActivate';
 import { Login } from './components/LogIn/Login'
 import { LoginService } from './Services/LoginService'
 import { Observable } from 'rxjs/Observable';
+import { AuthInterceptor } from './Security/HttpInterceptor';
+import { DatePicker } from './components/Utils/DatePicker/DatePicker';
 
-@Injectable()
-export class AuthInterceptor implements HttpInterceptor {
-    constructor( @Inject(DOCUMENT) private _document: any ) { }
-    intercept(req: HttpRequest<any>,
-        next: HttpHandler): Observable<HttpEvent<any>> {
 
-        const idToken = this._document.cookie;
-
-        if (idToken.indexOf("token") > -1) {
-            const cloned = req.clone({
-                headers: req.headers.set("Authorization",
-                    "Bearer " + idToken)
-            });
-
-            return next.handle(cloned);
-        }
-        else {
-            return next.handle(req);
-        }
-    }
-}
 
 
 @NgModule({
     declarations: [
         AppComponent,
+        DatePicker,
         NavMenuComponent,
         CounterComponent,
         FetchDataComponent,
